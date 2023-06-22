@@ -18,7 +18,6 @@ public class Tree {
         }
     }
 
-
     private Node root;
 
     public void insert(int value) {
@@ -58,5 +57,44 @@ public class Tree {
                 return true;
         }
         return false;
+    }
+
+    public void traversePreOrder() {
+        traversePreOrder(root);
+    }
+
+    private void traversePreOrder(Node root) {
+        if (root == null)
+            return;
+
+        System.out.println(root.value);
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
+    }
+
+    public void traverseInOrder() {
+        traverseInOrder(root);
+    }
+
+    private void traverseInOrder(Node root) {
+        if (root == null)
+            return;
+
+        traversePreOrder(root.leftChild);
+        System.out.println(root.value);
+        traversePreOrder(root.rightChild);
+    }
+
+    public void traversePostOrder() {
+        traversePostOrder(root);
+    }
+
+    private void traversePostOrder(Node root) {
+        if (root == null)
+            return;
+
+        traversePostOrder(root.leftChild);
+        traversePostOrder(root.rightChild);
+        System.out.println(root.value);
     }
 }
