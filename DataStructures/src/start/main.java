@@ -10,16 +10,9 @@ public class main {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-
-        Tree tree2 = new Tree();
-        tree2.insert(7);
-        tree2.insert(4);
-        tree2.insert(9);
-        tree2.insert(1);
-        tree2.insert(6);
-        tree2.insert(8);
-        tree2.insert(10);
-        tree.swapRoot();
-        System.out.println(tree.isBinarySearchTree());
+        var list = tree.getNodesAtDistance(2);
+        for (var item: list) {
+            System.out.println(item);
+        }
     }
 }
