@@ -10,9 +10,6 @@ public class main {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-        var list = tree.getNodesAtDistance(2);
-        for (var item: list) {
-            System.out.println(item);
-        }
+        tree.traverseLevelOrder();
     }
 }
