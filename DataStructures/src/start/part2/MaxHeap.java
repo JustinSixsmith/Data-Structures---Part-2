@@ -2,7 +2,8 @@ package start.part2;
 
 public class MaxHeap {
     public static void heapify(int[] array) {
-        for (int i = 0; i < array.length; i++)
+        var lastParentIndex = array.length / 2 - 1;
+        for (var i = lastParentIndex; i >= 0; i--)
             heapify(array, i);
     }
 
@@ -29,5 +30,19 @@ public class MaxHeap {
         var temp = array[first];
         array[first] = array[second];
         array[second] = temp;
+    }
+
+    public static int getKthLargest(int[] array, int k) {
+        if (k < 1 || k > array.length)
+            throw new IllegalArgumentException();
+
+        var heap = new Heap();
+        for (var number : array)
+            heap.insert(number);
+
+        for (int i = 0; i < k - 1; i++) {
+            heap.remove();
+        }
+        return heap.max();
     }
 }
