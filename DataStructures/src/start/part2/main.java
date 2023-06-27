@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class main {
     public static void main(String[] args) {
         var trie = new Trie();
-        trie.insert("canada");
-        System.out.println(trie.contains(""));
+        trie.insert("care");
+        trie.traverse();
     }
 }
