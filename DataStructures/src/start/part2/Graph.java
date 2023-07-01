@@ -68,16 +68,45 @@ public class Graph {
         adjacencyList.get(fromNode).remove(toNode);
     }
 
-    public void traverseDepthFirst(String root) {
-        traverseDepthFirst(nodes.get(root), new HashSet<>());
+    public void traverseDepthFirstRec(String root) {
+        var node = nodes.get(root);
+        if (node == null)
+            return;
+
+        traverseDepthFirstRec(node, new HashSet<>());
     }
 
-    private void traverseDepthFirst(Node root, Set<Node> visted) {
+    private void traverseDepthFirstRec(Node root, Set<Node> visted) {
         System.out.println(root);
         visted.add(root);
 
         for (var node : adjacencyList.get(root))
             if (!visted.contains(node))
-                traverseDepthFirst(node, visted);
+                traverseDepthFirstRec(node, visted);
+    }
+
+    public void traverseDepthFirst(String root) {
+        var node = nodes.get(root);
+        if (node == null)
+            return;
+
+        Set<Node> visited = new HashSet<>();
+        Stack<Node> stack = new Stack<>();
+        stack.push(node);
+
+        while (!stack.isEmpty()) {
+            var current = stack.pop();
+
+            if (visited.contains(current))
+                continue;
+
+            System.out.println(current);
+            visited.add(current);
+
+            for (var neighbor : adjacencyList.get(current)) {
+                if (!visited.contains(neighbor))
+                    stack.push(neighbor);
+            }
+        }
     }
 }
