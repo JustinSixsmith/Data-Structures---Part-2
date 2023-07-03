@@ -4,18 +4,12 @@ import java.util.Arrays;
 
 public class main {
     public static void main(String[] args) {
-        var graph = new Graph();
-        graph.addNode("X");
+        var graph = new WeightedGraph();
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("P");
-        graph.addNode("A");
-        graph.addNode("B");
-        graph.addEdge("X", "A");
-        graph.addEdge("X", "B");
-        graph.addEdge("A", "P");
-        graph.addEdge("B", "P");
-        var list = graph.topologicalSort();
-        System.out.println(list);
+        graph.addNode("C");
+        graph.addEdge("A", "B", 3);
+        graph.addEdge("A", "C", 2);
+        graph.print();
     }
 }
