@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         int[] numbers = {1, 3, 5, 6, 7};
         var search = new Search();
-        var index = search.binarySearchRec(numbers, 1);
+        var index = search.binarySearch(numbers, 70);
         System.out.println(index);
     }
 }
