@@ -121,7 +121,7 @@ public class StringUtils {
     }
 
     public static boolean areAnagram2(String first, String second) {
-        if (first == null || second == null)
+        if (first == null || second == null || first.length() != second.length())
             return false;
 
         final int ENGLISH_ALPHABET = 26;
@@ -139,6 +139,25 @@ public class StringUtils {
 
             frequencies[index]--;
         }
+
+        return true;
+    }
+
+    public static boolean isPalindrome(String word) {
+        if (word == null)
+            return false;
+
+//        var input = new StringBuilder();
+//        input.reverse();
+//        return input.toString().equals(word);
+
+        int left = 0;
+        int right = word.length() - 1;
+
+        word = word.toLowerCase();
+        while (left < right)
+            if (word.charAt(left++) != word.charAt(right--))
+                return false;
 
         return true;
     }
