@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        var reversed = StringUtils.reverse(null);
-        System.out.println(reversed.length());
+        var reversed = StringUtils.reverseWords("Trees are beautiful");
+        System.out.println(reversed);
     }
 }

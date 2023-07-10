@@ -1,8 +1,6 @@
 package start.part3;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class StringUtils {
     public static int countVowels(String str) {
@@ -32,5 +30,14 @@ public class StringUtils {
         }
 
         return reversed.toString();
+    }
+
+    public static String reverseWords(String sentence) {
+        if (sentence == null)
+            return "";
+
+        String[] words = sentence.trim().split(" ");
+        Collections.reverse(Arrays.asList(words));
+        return String.join(" ", words);
     }
 }
