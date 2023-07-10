@@ -63,4 +63,31 @@ public class StringUtils {
 
         return output.toString();
     }
+
+    public static char getMaxOccuringChar(String str) {
+        if (str == null || str.isEmpty())
+            throw new IllegalArgumentException();
+
+//        Map<Character, Integer> frequencies = new HashMap<>();
+//        for (var ch : str.toCharArray()) {
+//            if (frequencies.containsKey(ch))
+//                frequencies.replace(ch, frequencies.get(ch) + 1);
+//            else
+//                frequencies.put(ch, 1);
+//        }
+        final int ASCII_SIZE = 256;
+        int[] frequencies = new int[ASCII_SIZE];
+        for (var ch : str.toCharArray())
+            frequencies[ch]++;
+
+        var max = 0;
+        var result = ' ';
+        for (int i = 0; i < frequencies.length; i++)
+            if (frequencies[i] > max) {
+                max = frequencies[i];
+                result = (char) i;
+            }
+
+        return result;
+    }
 }
