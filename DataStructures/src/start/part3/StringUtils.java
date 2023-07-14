@@ -37,7 +37,7 @@ public class StringUtils {
             return "";
 
         String[] words = sentence.trim().split(" ");
-        Collections.reverse(Arrays.asList(words));
+        Collections.reverse(java.util.Arrays.asList(words));
         return String.join(" ", words);
     }
 
